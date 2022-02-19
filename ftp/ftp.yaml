@@ -1,0 +1,10 @@
+# ftp configuration
+ftp:
+  #ftp 服务器Ip和端口
+  addr: '127.0.0.1:6379'
+  #用户
+  username: 'ftpuser1'
+  #密码
+  password: '123456'
+  # 指定的目录
+  cwd: /
