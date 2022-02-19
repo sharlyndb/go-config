@@ -1,0 +1,9 @@
+jwt:
+  # 缓冲时间
+  buffer-time: 86400
+  # 过期时间
+  expires-time: 604800
+  # jwt签名用的key
+  signing-key: 84a27a85-0868-45ea-95bc-c83b0388dd2e
+  # 多地登录拦截 true 拦截 fasle 不拦截
+  use-multipoint: true
