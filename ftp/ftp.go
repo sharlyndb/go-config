@@ -1,3 +1,8 @@
+/**
+ * @Time: 2022/2/19 07:21
+ * @Author: yt.yin
+ */
+
 package ftp
 
 type Ftp struct {
