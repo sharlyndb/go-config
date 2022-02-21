@@ -1,0 +1,22 @@
+#mqtt配置
+mqtt:
+  # MQTT-服务器连接地址，如果有多个，用逗号隔开，如：tcp://127.0.0.1:1883，tcp://192.168.2.133:1883
+  url: tcp://127.0.0.1:1882
+  # 用户名
+  username: mqtt
+  # 密码
+  password: 123456
+  # 协议  Mqtt 协议版本号 4是3.1.1，3是3.1
+  protocol-ver: 4
+  # 断开后是否重连
+  auto-reconnect: true
+  # 最大连接间隔时间 单位：秒
+  max-reconnect-interval: 60
+  # ping 超时时间 单位：秒
+  ping-timeout: 10
+  # 写超时时间 单位：秒
+  write-timeout: 10
+  # 连接超时时间 单位：秒
+  connect-timeout: 10
+  # 遗言发送的topic
+  will-topic: last-will
