@@ -1,0 +1,14 @@
+# redis configuration
+redis:
+  # redis 数据服务器ip和端口
+  addr: '127.0.0.1:6379'
+  # 指定连接的数据库 默认连数据库0
+  db: 0
+  # 连接密码
+  password: ''
+  # 最大重试次数
+  max-retries: 3
+  # 最大空闲连接数
+  min-idle-conns: 5
+  # 连接池大小
+  pool-size: 10
