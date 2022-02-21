@@ -1,4 +1,4 @@
-# mysql connect configuration
+# postgre connect configuration
 postgre:
   # 数据服务器ip
   host: '127.0.0.1'
