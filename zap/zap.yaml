@@ -1,0 +1,23 @@
+# zap 日志配置
+zap:
+  # 日志级别 debug、info、warn、error
+  level: 'info'
+  # 日志输出格式 json、console
+  format: 'console'
+  # 日志输出前缀
+  prefix: '[xxxx]'
+  # 日志输出根路径
+  director: 'logs'
+  # 日志软连接文件名
+  link-name: 'logs/work.log'
+  # 是否在日志中输出源码所在的行
+  show-line: false
+  # 日志编码等级，指定不通过等级可以有不同颜色 LowercaseLevelEncoder 小写编码器(默认)
+  # LowercaseColorLevelEncoder 小写编码器带颜色
+  # CapitalLevelEncoder 大写编码器
+  # CapitalColorLevelEncoder 大写编码器带颜色
+  encode-level: 'LowercaseColorLevelEncoder'
+  # 堆栈捕捉标识 stacktrace 、trace
+  stacktrace-key: 'stacktrace'
+  # 是否在控制台打印日志
+  log-in-console: true
