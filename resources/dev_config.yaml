@@ -1,0 +1,186 @@
+# 服务实例配置
+server:
+  #服务绑定的IP和端口
+  addr: 8880
+  # 服务名称
+  service-name: xxxx-server
+  # 服务根路径
+  context-path: /xxx
+  #是否开启请求方式检测
+  handle-method-not-allowed: true
+  #数据库类型
+  data-driver: 'mysql'
+
+# consul 注册中心
+consul:
+  # 注册中心地址
+  addr: 127.0.0.1:8500
+  # 间隔 单位秒
+  register-interval: 30
+
+# mysql 配置
+mysql:
+  # 数据服务器ip
+  host: '127.0.0.1'
+  # 数据库端口
+  port: '3306'
+  # 连接配置
+  config: 'charset=utf8mb4&parseTime=True&loc=Local'
+  # 数据库名称
+  db-name: 'test1'
+  # 数据库用户名
+  username: 'user1'
+  # 密码
+  password: '123456'
+  # 最大空闲连接数
+  max-idle-conns: 10
+  # 最大连接数
+  max-open-conns: 100
+
+# postgresql 配置
+postgre:
+  # 数据服务器ip
+  host: '127.0.0.1'
+  # 数据库端口
+  port: '5432'
+  # 连接配置
+  config: 'sslmode=disable TimeZone=Asia/Shanghai'
+  # 数据库名称
+  db-name: 'test1'
+  # 数据库用户名
+  username: 'user1'
+  # 密码
+  password: '123456'
+  # 最大空闲连接数
+  max-idle-conns: 10
+  # 最大连接数
+  max-open-conns: 100
+
+# redis 相关配置
+redis:
+  # redis 数据服务器ip和端口
+  addr: '127.0.0.1:6379'
+  # 指定连接的数据库 默认连数据库0
+  db: 0
+  # 连接密码
+  password: ''
+  # 最大重试次数
+  max-retries: 3
+  # 最大空闲连接数
+  min-idle-conns: 5
+  # 连接池大小
+  pool-size: 10
+
+# 邮件发送相关配置
+email:
+  #  收件人:多个以英文逗号分隔
+  to: xxx@qq.com
+  # 设置发件人
+  from: xxx@163.com
+  # 邮件服务器地址
+  host: smtp.163.com
+  # 邮件服务器端口
+  port: 465
+  # 是否启用SSL
+  is-ssl: true
+  # 密钥
+  secret: xxx
+
+# ftp 文件服务器配置
+ftp:
+  #ftp 服务器Ip和端口
+  addr: '127.0.0.1:6379'
+  #用户
+  username: 'ftpuser1'
+  #密码
+  password: '123456'
+  # 指定的目录
+  cwd: /
+
+# token相关配置
+jwt:
+  # 缓冲时间
+  buffer-time: 86400
+  # 过期时间
+  expires-time: 604800
+  # jwt签名用的key
+  signing-key: 84a27a85-0868-45ea-95bc-c83b0388dd2e
+  # 多地登录拦截 true 拦截 fasle 不拦截
+  use-multipoint: true
+
+#mqtt配置
+mqtt:
+  # MQTT-服务器连接地址，如果有多个，用逗号隔开，如：tcp://127.0.0.1:1883，tcp://192.168.2.133:1883
+  url: tcp://127.0.0.1:1882
+  # 用户名
+  username: mqtt
+  # 密码
+  password: 123456
+  # 协议  Mqtt 协议版本号 4是3.1.1，3是3.1
+  protocol-ver: 4
+  # 断开后是否重连
+  auto-reconnect: true
+  # 最大连接间隔时间 单位：秒
+  max-reconnect-interval: 60
+  # ping 超时时间 单位：秒
+  ping-timeout: 10
+  # 写超时时间 单位：秒
+  write-timeout: 10
+  # 连接超时时间 单位：秒
+  connect-timeout: 10
+  # 遗言发送的topic
+  will-topic: last-will
+
+# 支付宝支付相关参数配置
+alipay:
+  # 商户pid 即商户的账号id，在某些业务场景下要用到
+  pid: '2088xxxxxx'
+  # 应用id
+  app-id: '2015xxxxx'
+  # 私钥
+  pri-key: 'MIICdw-xxxxxxxx'
+  # 公钥
+  pub-key: 'MIGf-xxxxxxxxxx'
+  # 签名方式  持RSA2和RSA，私钥1024位对应RSA
+  sign-type: 'RSA'
+  # 默认订单标题
+  subject: '支付宝测试'
+  # 回调地址
+  notify-url:
+
+#微信支付参数配置
+weichat:
+  # 应用id
+  app-id: 'wx04xxxxxx'
+  # 微信分配的商户号
+  mch-id: '148xxxxxx'
+  # 签名用的 key
+  api-key: 'xxxx'
+  # 微信回调的url
+  notify-url:
+  #微信p12密钥文件存放位置
+  cert-p12-path: ''
+
+# zap 日志配置
+zap:
+  # 日志级别 debug、info、warn、error
+  level: 'info'
+  # 日志输出格式 json、console
+  format: 'console'
+  # 日志输出前缀
+  prefix: '[xxxx]'
+  # 日志输出根路径
+  director: 'logs'
+  # 日志软连接文件名
+  link-name: 'logs/work.log'
+  # 是否在日志中输出源码所在的行
+  show-line: false
+  # 日志编码等级，指定不通过等级可以有不同颜色 LowercaseLevelEncoder 小写编码器(默认)
+  # LowercaseColorLevelEncoder 小写编码器带颜色
+  # CapitalLevelEncoder 大写编码器
+  # CapitalColorLevelEncoder 大写编码器带颜色
+  encode-level: 'LowercaseColorLevelEncoder'
+  # 堆栈捕捉标识 stacktrace 、trace
+  stacktrace-key: 'stacktrace'
+  # 是否在控制台打印日志
+  log-in-console: true
