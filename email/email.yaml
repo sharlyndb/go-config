@@ -1,0 +1,13 @@
+email:
+  #  收件人:多个以英文逗号分隔
+  to: xxx@qq.com
+  # 设置发件人
+  from: xxx@163.com
+  # 邮件服务器地址
+  host: smtp.163.com
+  # 邮件服务器端口
+  port: 465
+  # 是否启用SSL
+  is-ssl: true
+  # 密钥
+  secret: xxx
