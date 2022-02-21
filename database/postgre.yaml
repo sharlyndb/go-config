@@ -1,0 +1,18 @@
+# mysql connect configuration
+postgre:
+  # 数据服务器ip
+  host: '127.0.0.1'
+  # 数据库端口
+  port: '5432'
+  # 连接配置
+  config: 'sslmode=disable TimeZone=Asia/Shanghai'
+  # 数据库名称
+  db-name: 'test1'
+  # 数据库用户名
+  username: 'user1'
+  # 密码
+  password: '123456'
+  # 最大空闲连接数
+  max-idle-conns: 10
+  # 最大连接数
+  max-open-conns: 100
