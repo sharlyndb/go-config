@@ -1,0 +1,11 @@
+server:
+  #服务绑定的IP和端口
+  addr: 8880
+  # 服务名称
+  service-name: xxxx-server
+  #是否开启请求方式检测
+  handle-method-not-allowed: true
+  #数据库类型
+  data-driver: 'mysql'
+  # 日志打印级别
+  log-level: 'error'
