@@ -1,0 +1,12 @@
+#微信支付参数配置
+weichat:
+  # 应用id
+  app-id: 'wx04xxxxxx'
+  # 微信分配的商户号
+  mch-id: '148xxxxxx'
+  # 签名用的 key
+  api-key: 'xxxx'
+  # 微信回调的url
+  notify-url:
+  #微信p12密钥文件存放位置
+  cert-p12-path: ''

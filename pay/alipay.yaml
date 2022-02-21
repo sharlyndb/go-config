@@ -1,0 +1,16 @@
+# 支付宝支付相关参数配置
+alipay:
+  # 商户pid 即商户的账号id，在某些业务场景下要用到
+  pid: '2088xxxxxx'
+  # 应用id
+  app-id: '2015xxxxx'
+  # 私钥
+  pri-key: 'MIICdw-xxxxxxxx'
+  # 公钥
+  pub-key: 'MIGf-xxxxxxxxxx'
+  # 签名方式  持RSA2和RSA，私钥1024位对应RSA
+  sign-type: 'RSA'
+  # 默认订单标题
+  subject: '支付宝测试'
+  # 回调地址
+  notify-url:
