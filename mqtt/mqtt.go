@@ -9,33 +9,33 @@ package mqtt
 type Mqtt struct {
 
 	/** Mqtt代理服务器的Ip和端口 */
-	Url                   string       `mapstructure:"url"                   json:"url"                       yaml:"url"`
+	Url                   string       `mapstructure:"url"                      json:"url"                       yaml:"url"`
 
 	/** 连接到代理服务器的用户名 */
-	Username              string       `mapstructure:"username"              json:"username"                  yaml:"username"`
+	Username              string       `mapstructure:"username"                 json:"username"                  yaml:"username"`
 
 	/** 密码 */
-	Password              string       `mapstructure:"password"              json:"password"                  yaml:"password"`
+	Password              string       `mapstructure:"password"                 json:"password"                  yaml:"password"`
 
 	/** Mqtt 协议版本号 4是3.1.1，3是3.1 */
-	ProtocolVersion       uint         `mapstructure:"protocolVer"           json:"protocolVer"               yaml:"protocol-ver"`
+	ProtocolVersion       uint         `mapstructure:"protocol-ver"             json:"protocolVer"               yaml:"protocol-ver"`
 
 	/** 断开后是否重新连接 */
-	AutoReconnect         bool         `mapstructure:"autoReconnect"         json:"autoReconnect"             yaml:"auto-reconnect"`
+	AutoReconnect         bool         `mapstructure:"auto-reconnect"           json:"autoReconnect"             yaml:"auto-reconnect"`
 
 	/** 最大连接间隔时间 单位：秒 */
-	MaxReconnectInterval  int          `mapstructure:"maxReconnectInterval"  json:"maxReconnectInterval"      yaml:"max-reconnect-interval"`
+	MaxReconnectInterval  int          `mapstructure:"max-reconnect-interval"   json:"maxReconnectInterval"      yaml:"max-reconnect-interval"`
 
 	/** ping 超时时间 单位：秒 */
-	PingTimeout           int          `mapstructure:"pingTimeout"           json:"pingTimeout"               yaml:"ping-timeout"`
+	PingTimeout           int          `mapstructure:"pingTimeout"              json:"ping-timeout"              yaml:"ping-timeout"`
 
 	/** 写超时时间 单位：秒 */
-	WriteTimeout          int          `mapstructure:"writeTimeout"          json:"writeTimeout"              yaml:"write-timeout"`
+	WriteTimeout          int          `mapstructure:"write-timeout"            json:"writeTimeout"              yaml:"write-timeout"`
 
 	/** 连接超时时间 单位：秒 */
-	ConnectTimeout        int          `mapstructure:"connectTimeout"        json:"connectTimeout"            yaml:"connect-timeout"`
+	ConnectTimeout        int          `mapstructure:"connect-timeout"          json:"connectTimeout"            yaml:"connect-timeout"`
 
 	/** 遗言发送的topic */
-	WillTopic             string       `mapstructure:"willTopic"             json:"willTopic"                 yaml:"will-topic"`
+	WillTopic             string       `mapstructure:"will-topic"               json:"willTopic"                 yaml:"will-topic"`
 }
 
