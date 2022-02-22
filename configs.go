@@ -6,6 +6,7 @@
 package configs
 
 import (
+	"github.com/goworkeryyt/configs/captcha"
 	"github.com/goworkeryyt/configs/consul"
 	"github.com/goworkeryyt/configs/database"
 	"github.com/goworkeryyt/configs/email"
@@ -27,6 +28,9 @@ type Configs struct {
 
 	/** 注册中心配置 */
 	Consul            consul.Consul          `mapstructure:"consul"             json:"consul"            yaml:"consul"`
+
+	/** 验证码配置 */
+	Captcha           captcha.Captcha        `mapstructure:"captcha"            json:"captcha"           yaml:"captcha"`
 
 	/** MySQL 数据库配置 */
 	MySQL             database.MySQL         `mapstructure:"mysql"              json:"mysql"             yaml:"mysql"`

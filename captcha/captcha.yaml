@@ -1,0 +1,12 @@
+# 验证码配置
+captcha:
+  # 数字或字符串长度
+  key-len: 6
+  # 验证码宽度
+  img-width: 240
+  # 验证码高度
+  img-height: 80
+  # 最大歪曲度 0.5-1.0
+  max-skew: 0.7
+  # 分布散点数
+  dot-count: 100
