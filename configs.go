@@ -6,16 +6,16 @@
 package configs
 
 import (
-	"configs/consul"
-	"configs/database"
-	"configs/email"
-	"configs/ftp"
-	"configs/jwt"
-	"configs/mqtt"
-	"configs/pay"
-	"configs/redis"
-	"configs/server"
-	"configs/zap"
+	"github.com/goworkeryyt/configs/consul"
+	"github.com/goworkeryyt/configs/database"
+	"github.com/goworkeryyt/configs/email"
+	"github.com/goworkeryyt/configs/ftp"
+	"github.com/goworkeryyt/configs/jwt"
+	"github.com/goworkeryyt/configs/mqtt"
+	"github.com/goworkeryyt/configs/pay"
+	"github.com/goworkeryyt/configs/redis"
+	"github.com/goworkeryyt/configs/server"
+	"github.com/goworkeryyt/configs/zap"
 	"github.com/spf13/viper"
 )
 
