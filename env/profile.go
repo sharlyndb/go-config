@@ -3,7 +3,7 @@
  * @Author: yt.yin
  */
 
-package profile
+package env
 
 // Profiles 多配置文件指定配置
 type Profiles struct{
@@ -15,6 +15,4 @@ type Profiles struct{
 	pro Production environment，生产环境
 	*/
 	Active         string       `mapstructure:"active"              json:"active"                  yaml:"active"`
-
-
 }
