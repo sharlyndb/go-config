@@ -68,3 +68,5 @@ type Configs struct {
 	/** 可自己取一些扩展配置 */
 	Viper             *viper.Viper
 }
+
+
