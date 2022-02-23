@@ -32,7 +32,6 @@ const (
 	ConfigPath = "./resources"
 )
 
-
 // SubItem 从配置中获取指定的配置子项
 func SubItem(subKey string,v interface{}){
 	if globalConfigs == nil || globalConfigs.Viper == nil {
