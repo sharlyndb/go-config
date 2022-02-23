@@ -75,7 +75,7 @@ func (e *environment) t() {}
 
 // Active 当前配置的env
 func Active() Environment {
-	if active.Value() == "" {
+	if active == nil || active.Value() == "" {
 		activeFile := LoadActiveFile()
 		if activeFile != nil {
 			env := activeFile.Active
