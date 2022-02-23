@@ -34,6 +34,8 @@ const (
 
 // SubItem 从配置中获取指定的配置子项
 func SubItem(subKey string,v interface{}){
+	glcMutex.Lock()
+	defer glcMutex.Unlock()
 	if globalConfigs == nil || globalConfigs.Viper == nil {
 		active := env.Active()
 		filename := active.Value() + ConfigSuffix
@@ -47,6 +49,7 @@ func SubItem(subKey string,v interface{}){
 			log.Fatalf("读取配置文件异常 : %s \n", err)
 			return
 		}
+		globalConfigs = &Configs{}
 		if err := v.Unmarshal(globalConfigs); err != nil {
 			log.Fatalf("读取配置文件异常 : %s \n", err)
 			return
@@ -100,6 +103,7 @@ func GlobalConfigs(envArr ...string) *Configs {
 		log.Fatalf("读取配置文件异常 : %s \n", err)
 		return nil
 	}
+	globalConfigs = &Configs{}
 	if err := v.Unmarshal(globalConfigs); err != nil {
 		log.Fatalf("读取配置文件异常 : %s \n", err)
 		return nil
