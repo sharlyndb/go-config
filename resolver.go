@@ -33,7 +33,7 @@ const (
 )
 
 // SubItem 从配置中获取指定的配置子项
-func SubItem(subKey string,v interface{}){
+func(c *Configs) SubItem(subKey string,v interface{}){
 	glcMutex.Lock()
 	defer glcMutex.Unlock()
 	if globalConfigs == nil || globalConfigs.Viper == nil {
