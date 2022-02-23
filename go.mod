@@ -1,4 +1,4 @@
-module github.com/goworkeryyt/configs
+module github.com/goworkeryyt/go-config
 
 go 1.17
 

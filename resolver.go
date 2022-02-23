@@ -3,11 +3,11 @@
  * @Author: yt.yin
  */
 
-package configs
+package goconfig
 
 import (
 	"github.com/fsnotify/fsnotify"
-	"github.com/goworkeryyt/configs/env"
+	"github.com/goworkeryyt/go-config/env"
 	"github.com/spf13/viper"
 	"log"
 	"sync"
@@ -15,9 +15,9 @@ import (
 
 var (
 	// 全局配置
-	globalConfigs  *Configs
-	// 为该全局变量创建一个读写锁
-    glcMutex sync.Mutex
+	globalConfig *Config
+	// 为该全局变量创建一个锁
+	glcMutex sync.Mutex
 )
 
 const (
@@ -33,10 +33,10 @@ const (
 )
 
 // SubItem 从配置中获取指定的配置子项
-func(c *Configs) SubItem(subKey string,v interface{}){
+func (c *Config) SubItem(subKey string, v interface{}) {
 	glcMutex.Lock()
 	defer glcMutex.Unlock()
-	if globalConfigs == nil || globalConfigs.Viper == nil {
+	if globalConfig == nil || globalConfig.Viper == nil {
 		active := env.Active()
 		filename := active.Value() + ConfigSuffix
 		v := viper.New()
@@ -49,13 +49,13 @@ func(c *Configs) SubItem(subKey string,v interface{}){
 			log.Fatalf("读取配置文件异常 : %s \n", err)
 			return
 		}
-		globalConfigs = &Configs{}
-		if err := v.Unmarshal(globalConfigs); err != nil {
+		globalConfig = &Config{}
+		if err := v.Unmarshal(globalConfig); err != nil {
 			log.Fatalf("读取配置文件异常 : %s \n", err)
 			return
 		}
-		if globalConfigs != nil &&  globalConfigs.Viper != nil {
-			globalConfigs.Viper = v
+		if globalConfig != nil && globalConfig.Viper != nil {
+			globalConfig.Viper = v
 		}
 		// 获取子项的值
 		value := v.Sub(subKey)
@@ -63,35 +63,35 @@ func(c *Configs) SubItem(subKey string,v interface{}){
 			return
 		}
 		err = value.Unmarshal(v)
-		if err != nil{
+		if err != nil {
 			log.Fatalf("读取子配置项异常 : %s \n", err)
 		}
 		return
 	}
-	value := globalConfigs.Viper.Sub(subKey)
+	value := globalConfig.Viper.Sub(subKey)
 	if value == nil {
 		return
 	}
 	err := value.Unmarshal(v)
-	if err != nil{
+	if err != nil {
 		log.Println("读取子配置项异常:", err)
 	}
 	return
 }
 
-// GlobalConfigs 获取全局配置
-func GlobalConfigs(envArr ...string) *Configs {
+// GlobalConfig 获取全局配置
+func GlobalConfig(envArr ...string) *Config {
 	glcMutex.Lock()
 	defer glcMutex.Unlock()
-	if globalConfigs != nil {
-		return globalConfigs
+	if globalConfig != nil {
+		return globalConfig
 	}
 	v := viper.New()
 	filename := ""
 	if len(envArr) == 0 {
 		active := env.Active()
 		filename = active.Value() + ConfigSuffix
-	}else{
+	} else {
 		filename = envArr[0] + ConfigSuffix
 	}
 	v.SetConfigName(filename)
@@ -103,21 +103,21 @@ func GlobalConfigs(envArr ...string) *Configs {
 		log.Fatalf("读取配置文件异常 : %s \n", err)
 		return nil
 	}
-	globalConfigs = &Configs{}
-	if err := v.Unmarshal(globalConfigs); err != nil {
+	globalConfig = &Config{}
+	if err := v.Unmarshal(globalConfig); err != nil {
 		log.Fatalf("读取配置文件异常 : %s \n", err)
 		return nil
 	}
-	globalConfigs.Viper = v
+	globalConfig.Viper = v
 	// 监控配置改变
 	v.WatchConfig()
 	v.OnConfigChange(func(e fsnotify.Event) {
 		log.Println("配置文件内容发生改变:", e.Name)
-		if err := v.Unmarshal(globalConfigs); err != nil {
+		if err := v.Unmarshal(globalConfig); err != nil {
 			log.Fatalf("读取配置文件异常 : %s \n", err)
 			return
 		}
-		globalConfigs.Viper = v
+		globalConfig.Viper = v
 	})
-	return globalConfigs
+	return globalConfig
 }
