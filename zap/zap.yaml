@@ -10,6 +10,14 @@ zap:
   director: 'logs'
   # 日志软连接文件名
   link-name: 'logs/work.log'
+  # 在进行切割之前，日志文件的最大大小（以MB为单位）
+  max-size: 100
+  # 日志最大保留时间 单位：天
+  max-age: 90
+  # 保留旧文件的最大个数
+  max-backups: 1000
+  # 是否压缩
+  compress: false
   # 是否在日志中输出源码所在的行
   show-line: false
   # 日志编码等级，指定不通过等级可以有不同颜色 LowercaseLevelEncoder 小写编码器(默认)

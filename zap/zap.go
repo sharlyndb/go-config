@@ -20,8 +20,17 @@ type Zap struct {
 	/** 日志目录 */
 	Director             string       `mapstructure:"director"            json:"director"          yaml:"director"`
 
+	/** 在进行切割之前，日志文件的最大大小（以MB为单位） */
+	MaxSize              int          `mapstructure:"max-size"            json:"maxSize"           yaml:"max-size"`
+
 	/** 日志最大保留时间 单位：天 */
 	MaxAge               int          `mapstructure:"max-age"             json:"maxAge"            yaml:"max-age"`
+
+	/** 保留旧文件的最大个数 */
+	MaxBackups           int          `mapstructure:"max-backups"         json:"maxBackups"        yaml:"max-backups"`
+
+	/** 是否压缩 */
+	Compress             bool         `mapstructure:"compress"            json:"compress"          yaml:"compress"`
 
 	/** 日志软连接文件 */
 	LinkName             string       `mapstructure:"link-name"           json:"linkName"          yaml:"link-name"`
