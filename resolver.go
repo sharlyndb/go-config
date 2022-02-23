@@ -6,7 +6,7 @@
 package configs
 
 import (
-	// "github.com/fsnotify/fsnotify"
+	"github.com/fsnotify/fsnotify"
 	"github.com/goworkeryyt/configs/env"
 	"github.com/spf13/viper"
 	"log"
@@ -106,14 +106,14 @@ func GlobalConfigs(envArr ...string) *Configs {
 	}
 	globalConfigs.Viper = v
 	// 监控配置改变
-	//v.WatchConfig()
-	//v.OnConfigChange(func(e fsnotify.Event) {
-	//	log.Println("配置文件内容发生改变:", e.Name)
-	//	if err := v.Unmarshal(globalConfigs); err != nil {
-	//		log.Fatalf("读取配置文件异常 : %s \n", err)
-	//		return
-	//	}
-	//	globalConfigs.Viper = v
-	//})
+	v.WatchConfig()
+	v.OnConfigChange(func(e fsnotify.Event) {
+		log.Println("配置文件内容发生改变:", e.Name)
+		if err := v.Unmarshal(globalConfigs); err != nil {
+			log.Fatalf("读取配置文件异常 : %s \n", err)
+			return
+		}
+		globalConfigs.Viper = v
+	})
 	return globalConfigs
 }
