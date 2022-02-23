@@ -1,4 +1,42 @@
-# configs go 开发中常用的一些配置
+# configs 
+### 介绍
+go 开发中常用的一些配置
+### 安装
+```
+go get -u github.com/goworkeryyt/configs
+```
+### 例子
+默认的程序根目录下必须包含 resources 文件夹，且文件夹内必须有 active.yaml和四种不同环境的开发文件至少一种
+```go
+package main
+
+import (
+	"fmt"
+	"github.com/goworkeryyt/configs"
+	"github.com/goworkeryyt/configs/redis"
+	"os"
+)
+
+func main() {
+	// 获取全局配置
+	globalConfigs := configs.GlobalConfigs()
+	if globalConfigs == nil{
+		fmt.Println("未能读取配置")
+		os.Exit(1)
+	}
+	// 读取 redis的配置,方法一
+	redis1 := globalConfigs.Redis
+	fmt.Println(redis1)
+
+	// 获取redis的配置,方法二
+	redis2 := redis.Redis{}
+	globalConfigs.SubItem("redis",&redis2)
+	fmt.Println(redis2)
+}
+
+```
+
+### 目录结构
 ```shell
 configs
 ├
@@ -31,5 +69,6 @@ configs
 ├
 ├── zap(日志相关配置)
 ```
-![img.png](img.png)
+
+
 
