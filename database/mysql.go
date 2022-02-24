@@ -17,6 +17,9 @@ type MySQL struct {
 	/** 后缀配置  默认配置 charset=utf8mb4&parseTime=True&loc=Local */
 	Config             string       `mapstructure:"config"              json:"config"            yaml:"config"`
 
+	/** sql日志等级 */
+	LogLevel           string       `mapstructure:"log-level"           json:"logLevel"          yaml:"log-level"`
+
 	/** 数据库名称 */
 	Dbname             string       `mapstructure:"db-name"             json:"dbname"            yaml:"db-name"`
 

@@ -6,5 +6,7 @@ sqlite:
   max-idle-conns: 1
   # 最大连接数
   max-open-conns: 5
+  # sql日志等级
+  log-level: 'error'
   # 是否执行清除命令
   vacuum: true

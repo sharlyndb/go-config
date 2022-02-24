@@ -17,6 +17,9 @@ type SQLite struct {
 	/** 最大连接数 */
 	MaxOpenConns       int          `mapstructure:"max-open-conns"      json:"maxOpenConns"      yaml:"max-open-conns"`
 
+	/** sql日志等级 */
+	LogLevel           string       `mapstructure:"log-level"           json:"logLevel"          yaml:"log-level"`
+
 	/** 是否执行清除命令 */
 	Vacuum             bool         `mapstructure:"vacuum"              json:"vacuum"            yaml:"vacuum"`
 }

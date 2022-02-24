@@ -6,6 +6,8 @@ mysql:
   port: '3306'
   # 连接配置
   config: 'charset=utf8mb4&parseTime=True&loc=Local'
+  # sql日志等级
+  log-level: 'error'
   # 数据库名称
   db-name: 'test1'
   # 数据库用户名
