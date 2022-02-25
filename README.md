@@ -32,6 +32,8 @@ func main() {
 	redis2 := redis.Redis{}
 	globalConfig.SubItem("redis",&redis2)
 	fmt.Println(redis2)
+	
+	// 获取其他定义的配置，方法同理
 }
 
 
@@ -41,7 +43,7 @@ func main() {
 ```shell
 configs
 ├
-├── captcha(基于redis的验证码存储器)
+├── captcha(验证码图片尺寸配置)
 ├
 ├── consul(注册中心配置)
 ├
