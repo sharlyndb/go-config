@@ -41,6 +41,8 @@ func main() {
 ```shell
 configs
 ├
+├── captcha(基于redis的验证码存储器)
+├
 ├── consul(注册中心配置)
 ├
 ├── database(数据库配置)
