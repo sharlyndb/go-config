@@ -122,6 +122,8 @@ mqtt:
   clean-session: true
   # 断开后是否重连
   auto-reconnect: true
+  # 保活时间间隔 单位：秒
+  keep-alive: 20
   # 最大连接间隔时间 单位：秒
   max-reconnect-interval: 60
   # ping 超时时间 单位：秒
