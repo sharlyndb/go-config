@@ -21,10 +21,13 @@ type Mqtt struct {
 	ProtocolVersion       uint         `mapstructure:"protocol-ver"             json:"protocolVer"               yaml:"protocol-ver"`
 
 	/** 设置客户端掉线服务端是否清除session */
-	CleanSession          bool         `mapstructure:"clean-session"            json:"cleanSession"             yaml:"clean-session"`
+	CleanSession          bool         `mapstructure:"clean-session"            json:"cleanSession"              yaml:"clean-session"`
 
 	/** 断开后是否重新连接 */
 	AutoReconnect         bool         `mapstructure:"auto-reconnect"           json:"autoReconnect"             yaml:"auto-reconnect"`
+
+	/** 保活时间间隔 */
+	KeepAlive             int          `mapstructure:"keep-alive"               json:"keepAlive"                 yaml:"keep-alive"`
 
 	/** 最大连接间隔时间 单位：秒 */
 	MaxReconnectInterval  int          `mapstructure:"max-reconnect-interval"   json:"maxReconnectInterval"      yaml:"max-reconnect-interval"`
