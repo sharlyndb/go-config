@@ -8,6 +8,8 @@ mqtt:
   password: 123456
   # 协议  Mqtt 协议版本号 4是3.1.1，3是3.1
   protocol-ver: 4
+  # 设置客户端掉线服务端是否清除session
+  clean-session: true
   # 断开后是否重连
   auto-reconnect: true
   # 最大连接间隔时间 单位：秒

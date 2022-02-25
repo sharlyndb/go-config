@@ -20,6 +20,9 @@ type Mqtt struct {
 	/** Mqtt 协议版本号 4是3.1.1，3是3.1 */
 	ProtocolVersion       uint         `mapstructure:"protocol-ver"             json:"protocolVer"               yaml:"protocol-ver"`
 
+	/** 设置客户端掉线服务端是否清除session */
+	CleanSession          bool         `mapstructure:"clean-session"            json:"cleanSession"             yaml:"clean-session"`
+
 	/** 断开后是否重新连接 */
 	AutoReconnect         bool         `mapstructure:"auto-reconnect"           json:"autoReconnect"             yaml:"auto-reconnect"`
 
