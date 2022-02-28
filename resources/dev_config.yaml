@@ -38,6 +38,10 @@ mysql:
   max-idle-conns: 10
   # 最大连接数
   max-open-conns: 100
+  #连接最大空闲时间  单位：秒
+  conn-max-idle-time: 60
+  #连接最大生命周期  单位：秒
+  conn-max-life-time: 600
 
 #sqlite数据库配置
 sqlite:
@@ -51,6 +55,10 @@ sqlite:
   log-level: 'error'
   # 是否执行清除命令
   vacuum: true
+  #连接最大空闲时间  单位：秒
+  conn-max-idle-time: 60
+  #连接最大生命周期  单位：秒
+  conn-max-life-time: 600
 
 # postgresql 配置
 postgre:
@@ -72,6 +80,10 @@ postgre:
   max-idle-conns: 10
   # 最大连接数
   max-open-conns: 100
+  #连接最大空闲时间  单位：秒
+  conn-max-idle-time: 60
+  #连接最大生命周期  单位：秒
+  conn-max-life-time: 600
 
 # redis 相关配置
 redis:
